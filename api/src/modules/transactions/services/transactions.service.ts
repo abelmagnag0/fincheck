@@ -38,10 +38,17 @@ export class TransactionsService {
     });
   }
 
-  findAllById(userId: string) {
+  findAllById(
+    userId: string,
+    filters: { month: number; year: number; bankAccountId?: string },
+  ) {
     return this.transactionsRepo.findMany({
       where: {
         userId,
+        date: {
+          gte: new Date(Date.UTC(filters.year, filters.month)),
+          lt: new Date(Date.UTC(filters.year, filters.month + 1)),
+        },
       },
     });
   }
