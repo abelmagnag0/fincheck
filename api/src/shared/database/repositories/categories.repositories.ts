@@ -9,4 +9,20 @@ export class CategoriesRepository {
   findMany(findManyDto: Prisma.CategoryFindManyArgs) {
     return this.prismaService.category.findMany(findManyDto);
   }
+
+  findFirst(findFirstDto: Prisma.CategoryFindFirstArgs) {
+    return this.prismaService.category.findFirst(findFirstDto);
+  }
+
+  create(createDto: Prisma.CategoryCreateArgs) {
+    return this.prismaService.category.create(createDto);
+  }
+
+  update(updateDto: Prisma.CategoryUpdateArgs) {
+    return this.prismaService.category.update(updateDto);
+  }
+
+  delete(deleteDto: Prisma.CategoryDeleteArgs) {
+    return this.prismaService.category.delete(deleteDto);
+  }
 }
